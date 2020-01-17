@@ -1,19 +1,24 @@
-# Project Name
-Project description
+# Robin RPA with Microsoft Excel
+This script uses the Robin RPA engine to update a value in a Microsoft Excel file and renames the file with the current days date.
+
+# Prerequisites
+* <a href url="https://robin-language.org/docs/installing-robin/">Robin v0.9.2.5567</a>
+* Microsoft Excel (desktop version)
+
+# Instructions
+After installing Robin, you can open this script in the Robin Editor and run it.  It could also be run from a command line like this:
+
+```
+"C:\Program Files\Robin\Robin.exe" run "C:\Robin_Excel.robin"
+```
 
 # Disclaimer
 No Support and No Warranty are provided by SMA Technologies for this project and related material. The use of this project's files is on your own risk.
 
 SMA Technologies assumes no liability for damage caused by the usage of any of the files offered here via this Github repository.
 
-# Prerequisites
-
-
-# Instructions
-
-
 # License
-Copyright 2019 SMA Technologies
+Copyright 2020 SMA Technologies
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
