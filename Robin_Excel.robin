@@ -1,0 +1,22 @@
+# Calculate the current date/time
+DateTime.Current DateTimeFormat:DateTime.DateTimeFormat.DateAndTime Offset:'0' CurrentDateTime=> CurrentDateTime
+
+# Checks if the file already exists, if so delete it
+if (File.Exists File:"C:\Excel_RPA_"+CurrentDateTime.Month+"-"+CurrentDateTime.Day+"-"+CurrentDateTime.Year+".xlsx") then
+    File.Delete Files:"C:\Excel_RPA_"+CurrentDateTime.Month+"-"+CurrentDateTime.Day+"-"+CurrentDateTime.Year+".xlsx"
+end
+
+# Launch Excel
+Excel.Launch Visible:True LoadAddInsAndMacros:False Instance=> ExcelInstance
+
+# Write to a cell in the current sheet
+Excel.WriteCell Instance:ExcelInstance  Value:"X-MAN"  Column:1  Row:1
+
+# Display example
+Display.ShowMessageWithTimeout Title:'The current date is:' Message:CurrentDateTime.Month+"/"+CurrentDateTime.Day+"/"+CurrentDateTime.Year \
+Icon:Display.Icon.None Buttons:Display.Buttons.OK DefaultButton:Display.DefaultButton.Button1 \
+IsTopMost:True Timeout:3 ButtonPressed=> ButtonPressed
+
+# Save and close Excel file
+Excel.CloseAndSaveAs Instance:ExcelInstance  DocumentFormat:Excel.ExcelFormat.FromExtension \
+DocumentPath:"C:\Excel_RPA_"+CurrentDateTime.Month+"-"+CurrentDateTime.Day+"-"+CurrentDateTime.Year+".xlsx"
